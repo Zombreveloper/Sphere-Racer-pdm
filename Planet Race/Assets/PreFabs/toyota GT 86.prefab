@@ -807,6 +807,7 @@ GameObject:
   - component: {fileID: 7046220762482115052}
   - component: {fileID: 7046220762482115051}
   - component: {fileID: 7046220762482115050}
+  - component: {fileID: 7981781953943423017}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -879,6 +880,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7046220762482115049}
   m_Enabled: 1
+--- !u!114 &7981781953943423017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046220762482115049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &7046220762618474992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,8 +1110,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6926708983067297706}
-  - component: {fileID: 4186330668299529295}
-  - component: {fileID: 7529324470927557764}
+  - component: {fileID: 8940029393169627399}
+  - component: {fileID: 5926317875398189524}
   m_Layer: 0
   m_Name: EngineAudio
   m_TagString: Untagged
@@ -1112,7 +1127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7671829212511562013}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.9200134, z: 1.59}
+  m_LocalPosition: {x: 0, y: -0.2, z: 2.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2704844144494696058}
@@ -1120,7 +1135,7 @@ Transform:
   m_Father: {fileID: 7117524369501110646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4186330668299529295
+--- !u!114 &8940029393169627399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1133,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Vehicles/Ride-on Mower
+  Event: event:/Vehicles/Car Engine
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -1141,11 +1156,13 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: RPM
-    Value: 1597
-  OverrideAttenuation: 0
+    Value: 1500
+  - Name: Load
+    Value: -0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &7529324470927557764
+--- !u!114 &5926317875398189524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1157,5 +1174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35222e321cd5494aa5c7e3b6178a329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRPM: 1500
-  maxRPM: 10000
+  minRPM: 2000
+  maxRPM: 7000

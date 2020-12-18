@@ -48,7 +48,7 @@ public class Car : MonoBehaviour
 			if (Mathf.Abs(dot) > 0.1f)
 			{
 				float speed = _rigidbody.velocity.magnitude;
-				return speed / 100; //der Returnwert muss noch durch die Höchstgeschw. geteilt werden oder korellierende Größe
+				return speed / 100; //Geschwindigkeit durch mögliche Höchstgeschw. Bisher experimentelle Größe
 			}
 			//return 0f;
 		}
