@@ -327,7 +327,7 @@ MonoBehaviour:
   CollisionTag: 
   Event: event:/Vehicles/Ride-on Mower
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
