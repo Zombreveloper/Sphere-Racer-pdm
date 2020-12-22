@@ -169,7 +169,7 @@ public class RaceManager : MonoBehaviour
         }
         else if (planetImOn == "BigBlueOcean")
         {
-            playerCar.transform.rotation = posOfPoint.rotation * Quaternion.Euler(0, 0, 0);
+            playerCar.transform.rotation = posOfPoint.rotation * Quaternion.Euler(0, 90, 0);
         }
 
         //Debug.Log("Reset the Car NOW!!!");
