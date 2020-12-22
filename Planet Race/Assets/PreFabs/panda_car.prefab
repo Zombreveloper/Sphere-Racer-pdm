@@ -115,7 +115,9 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: RPM
-    Value: 1597
+    Value: 2567
+  - Name: Load
+    Value: -1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -131,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35222e321cd5494aa5c7e3b6178a329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRPM: 2000
+  minRPM: 2300
   maxRPM: 10000
 --- !u!1 &8889245313783981025
 GameObject:
