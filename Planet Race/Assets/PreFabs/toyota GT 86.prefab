@@ -400,13 +400,13 @@ WheelCollider:
     m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.4
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.2
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &7046220760640465891
 MonoBehaviour:
@@ -478,13 +478,13 @@ WheelCollider:
     m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.4
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.2
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &7046220760694389054
 MonoBehaviour:
@@ -556,13 +556,13 @@ WheelCollider:
     m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.4
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.2
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &7046220761026593622
 MonoBehaviour:
@@ -713,13 +713,13 @@ WheelCollider:
     m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.4
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.2
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &7046220761882257403
 MonoBehaviour:
@@ -1215,6 +1215,8 @@ MonoBehaviour:
   centerOfMass: {fileID: 7046220762405833192}
   motorTorque: 500
   maxSteer: 20
+  accelerationOn: 30
+  brakePower: 1000
 --- !u!114 &2991572411371449765
 MonoBehaviour:
   m_ObjectHideFlags: 0
