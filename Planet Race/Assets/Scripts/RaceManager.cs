@@ -151,7 +151,7 @@ public class RaceManager : MonoBehaviour
         //nich += denn es soll insgesamt auch bei mehrmaligem drücken nur eimal (1) 3 aud die höhe addiert werden
 
         Vector3 upDirection = myPlanet.directionOfGravity;
-        playerCar.transform.position = posOfPoint.position + Vector3.Normalize(upDirection)*-3;
+        playerCar.transform.position = posOfPoint.position + Vector3.Normalize(upDirection)*-4;
         //auto landet an Position des Checkpoints, aber erhöht um 3 entlang der Achse zwischen Planetkern und Auto
 
         //weil die CheckPoints alle in unterschiedliche Richtungen gucken... unterschiedliche rotation am ziel
