@@ -282,6 +282,8 @@ MonoBehaviour:
   centerOfMass: {fileID: 8805307502864962773}
   motorTorque: 300
   maxSteer: 20
+  accelerationOn: 10
+  brakePower: 1000
 --- !u!114 &-6865718328780786369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
+  attenuationObject: {fileID: 8805307502242965087}
   ListenerNumber: -1
 --- !u!1 &8805307502250581457
 GameObject:
