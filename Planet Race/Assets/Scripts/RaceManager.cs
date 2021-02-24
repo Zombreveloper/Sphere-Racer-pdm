@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class RaceManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class RaceManager : MonoBehaviour
     public int totalLaps = 2;
 
     public GameObject endeText;
+
+    public TMP_Text myLap;
 
 //hauptprogramm
     void Awake()
@@ -182,6 +185,8 @@ public class RaceManager : MonoBehaviour
             lapCounter++; //..the car is now in the next Lap.
             Debug.Log("You are in Lap Number " + lapCounter);
             countsLaps = false;
+
+            myLap.text = "Runde: " + lapCounter;
         }
 
         if (lapCounter == totalLaps+1)
@@ -207,6 +212,10 @@ public class RaceManager : MonoBehaviour
 
     void goMenu()
     {
+        /*
+        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Players Score", LoadSceneMode.Additive);
+        */
         SceneManager.LoadScene("Players Score");
     }
 }
