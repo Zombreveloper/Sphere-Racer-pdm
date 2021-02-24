@@ -43,6 +43,8 @@ public class pauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Resume();
+        PlayerPrefs.SetString("fromPLanet", "Splash");
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Menu");
     }
 
