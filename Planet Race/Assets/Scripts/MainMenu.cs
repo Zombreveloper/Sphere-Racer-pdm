@@ -56,4 +56,14 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT!!!!!!");
         Application.Quit(); //spiel verlassen
     }
+
+    public void devLasseDeleteScoreLists()
+    {
+        //Löscht Lasses Listen zu Testzwecken, bitte nicht benutzen...
+        PlayerPrefs.DeleteKey("highscoreTable");
+        PlayerPrefs.DeleteKey("BigBlueOcean");
+        PlayerPrefs.DeleteKey("Bambus");
+        PlayerPrefs.DeleteKey("Mond");
+        PlayerPrefs.DeleteKey("Mars");
+    }
 }
