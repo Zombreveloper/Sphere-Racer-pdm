@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Vehicles/Car Engine
+  Event: event:/Vehicles/Spaceship Engine
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
@@ -1288,6 +1288,8 @@ MonoBehaviour:
   centerOfMass: {fileID: 8114774704703923724}
   motorTorque: 400
   maxSteer: 20
+  accelerationOn: 10
+  brakePower: 1000
 --- !u!114 &4260200416249720959
 MonoBehaviour:
   m_ObjectHideFlags: 0
