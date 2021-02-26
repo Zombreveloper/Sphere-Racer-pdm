@@ -9,6 +9,7 @@ public class Car : MonoBehaviour
     public float maxSteer = 20f;
     public float accelerationOn = 10;
     public float brakePower = 1000;
+    public float accelerationMult = 3;//multiplicateor of motorTorque when accelerating
 
     public float Steer { get; set; }
     public float Throttle { get; set; }
@@ -18,6 +19,8 @@ public class Car : MonoBehaviour
 
 	private Rigidbody _rigidbody;
     private Wheel[] wheels; //Array aus reifen
+
+    private int doIRev = 0;
 
 	void awake()
 	{
@@ -50,19 +53,49 @@ public class Car : MonoBehaviour
 
         //Debug.Log("Geschwinfigkeit: " + myVelocity); //Testzweck
 
+        whatDoWeehlsDo();
+    }
+
+    private void whatDoWeehlsDo()//how wheels have to react to keyboard input
+    {
+        /*
+        ICH WEI? NICHT GENAU WARUM ES FUNKTIONIERT; ABER; ES FUNKTIONIERT!!!!!!
+        */
+                
         foreach (var wheel in wheels)
         {
             //Car gibt Werte 1, 0, -1 multipliziert mit Kraft an Wheel-Variablen weiter
             wheel.SteerAngle = Steer * maxSteer; //wheel ist quasie Listener von SteerAngle oder Torque
-            wheel.Brake = 0;
 
-            if (Throttle == 1 && myVelocity > accelerationOn) //vorwärts beschläunigen
+            if (myVelocity <= 0.1 && Throttle == -1)//check if it should be driving in reverse
             {
+                //Debug.Log("Car: doIRev is now true");
+                doIRev = 1;
+            }
+
+            //Debug.Log("Car: myVelocity: " + myVelocity + "Car: Throttle: " + Throttle);
+            if(Throttle == 1 && myVelocity < 0.1 && doIRev == 1)
+            {
+                doIRev = 0;
+                Debug.Log("Car: doIRev ist wieder 0");
+            }
+            else if (Throttle == 1 && doIRev == 1)//reverse Bremse deaktivieren
+            {
+                wheel.Brake = brakePower;
+            }
+
+            //VORWÄRTS FAHREN
+            else if (Throttle == 1 && myVelocity > accelerationOn) //vorwärts beschläunigen
+            {
+                wheel.Brake = 0;
                 wheel.Torque = Throttle * motorTorque;
+                doIRev = 0;
             }
             else if (Throttle == 1 && myVelocity < accelerationOn) //vorwärts fahren (normal)
             {
-                wheel.Torque = Throttle * motorTorque * 3;
+                wheel.Brake = 0;
+                wheel.Torque = Throttle * motorTorque * accelerationMult;
+                doIRev = 0;
             }
             /*else if (oldThrottle == 1 && Throttle == 0) //wenn w / UP losgelassen wird
             {
@@ -76,14 +109,27 @@ public class Car : MonoBehaviour
             {
                 wheel.Torque = Throttle * motorTorque;
             }
-            else if (myVelocity > 3 && Throttle == -1) //wenn von (w / UP) hohe geschw.  auf s / DOWN bremsen
+
+            //VON BREMSE AUF RÜCKWÄRTS
+            else if (Throttle == -1 && doIRev == 1) //wenn bei quasie 0 geschw. auf s / DOWN bzw. rückwärts fahren
+            {
+                //wheel.Brake = 0;
+                //wheel.Torque = Throttle * motorTorque;
+                Invoke("driveReverse", 1);
+            }
+            else if (myVelocity > 0 && Throttle == -1) //wenn von (w / UP) hohe geschw.  auf s / DOWN bremsen
             {
                     wheel.Brake = brakePower;
             }
-            else if (myVelocity < 3 && Throttle == -1) //wenn bei quasie 0 geschw. auf s / DOWN bzw. rückwärts fahren
-            {
-                wheel.Torque = Throttle * motorTorque;
-            }
+        }
+    }
+
+    void driveReverse()
+    {
+        foreach (var wheel in wheels)
+        {
+            wheel.Brake = 0;
+            wheel.Torque = Throttle * motorTorque;
         }
     }
 
