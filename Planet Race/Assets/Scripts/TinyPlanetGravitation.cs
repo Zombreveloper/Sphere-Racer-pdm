@@ -12,6 +12,7 @@ public class TinyPlanetGravitation : MonoBehaviour
     public float MassOfTinyPlanet = 100000f;
 
     public Vector3 directionOfGravity { get; private set; }
+    public Vector3 directionUp { get; private set; }
     public float gravity = 30f;
     private float forceOfGravity;
     private float distance;
@@ -36,6 +37,7 @@ public class TinyPlanetGravitation : MonoBehaviour
         //rbToAttract.AddForce(directionOfGravity.normalized * gravity);
 
         directionOfGravity = tinyPlanet.position - rbToAttract.position;
+        directionUp = rbToAttract.position - tinyPlanet.position;
         distance = directionOfGravity.magnitude;
 
         //F=G*(m1*m2)/r^2 ->G=9.81, m1(Masse der Erde)=

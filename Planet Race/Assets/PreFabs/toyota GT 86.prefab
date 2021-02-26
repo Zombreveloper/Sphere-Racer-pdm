@@ -935,13 +935,14 @@ GameObject:
   - component: {fileID: 7046220762482115051}
   - component: {fileID: 7046220762482115050}
   - component: {fileID: 7981781953943423017}
+  - component: {fileID: 5103295713082046745}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7046220762482115052
 Transform:
   m_ObjectHideFlags: 0
@@ -949,13 +950,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7046220762482115049}
-  m_LocalRotation: {x: 0.13947465, y: -0.0000042840834, z: 0.00000060489396, w: 0.9902256}
+  m_LocalRotation: {x: 0.13947551, y: 0, z: 0, w: 0.9902255}
   m_LocalPosition: {x: 0, y: 3.94, z: -5.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7117524369501110646}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 16.035, y: 360, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.035, y: 0, z: 0}
 --- !u!20 &7046220762482115051
 Camera:
   m_ObjectHideFlags: 0
@@ -1021,6 +1022,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 7046220762482115049}
   ListenerNumber: -1
+--- !u!114 &5103295713082046745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046220762482115049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c4120f32d5c354897cc2f8afdbad1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 2.5, z: 6}
+  translateSpeed: 10
+  rotationSpeed: 10
+  playerCar: {fileID: 0}
+  myPlanet: {fileID: 0}
 --- !u!1 &7046220762618474992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,13 +1065,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7046220762618474992}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0.000001498028, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.06, z: 1.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7117524369501110646}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 1800}
 --- !u!65 &7046220762618474994
 BoxCollider:
   m_ObjectHideFlags: 0
