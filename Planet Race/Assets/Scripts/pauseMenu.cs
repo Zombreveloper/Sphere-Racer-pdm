@@ -4,12 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
-{
-
+{	
+	
+	public FmodVolumeSettings mySoundmanager;
+	
     public static bool GameIsPaused = false;
+	
 
     public GameObject pauseMenuUI;
+	
 
+	
     // Update is called once per frame
     void Update()
     {
@@ -18,10 +23,12 @@ public class pauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
+				mySoundmanager.UnpauseSFX();
             }
             else
             {
                 Pause();
+				mySoundmanager.PauseSFX();
             }
         }
     }
@@ -43,6 +50,7 @@ public class pauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Resume();
+		mySoundmanager.UnpauseSFX();
         PlayerPrefs.SetString("fromPLanet", "Splash");
         PlayerPrefs.Save();
         SceneManager.LoadScene("Menu");
