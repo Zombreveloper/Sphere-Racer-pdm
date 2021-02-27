@@ -13,6 +13,9 @@ public class ScoreList : MonoBehaviour
     //for ADDing A DEFAULT List (see line 23/24)
     private List<HighscoreEntry> highscoreEntryList;
 
+    private Highscores highscores;
+
+
     void Awake()
     {
         entryContainer = transform.Find("newScoreContainer" + myPlanetName);
@@ -20,24 +23,10 @@ public class ScoreList : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);//muster-Zeile unsichtbar machen
 
-        //ADD A DEFAULT List (if not needed put in comment)
-        //SaveDefaultList();
-
-        //ADD AN ENTRY
-        makeEntry();
-
         //show the List (put things in order)
         showList();
     }
 
-    private void checkList(string jsonString)//checks if there is something in the List
-    {
-        if (jsonString.Length == 0)
-        {
-            Debug.Log("ScoreList: jsonString ist NULL!");
-            SaveDefaultList();//Adds a Default List if there was no List before
-        }
-    }
 
     private void makeEntry()
     {
@@ -64,51 +53,8 @@ public class ScoreList : MonoBehaviour
     private void showList()
     {
         //get the List
-        string jsonString = PlayerPrefs.GetString(myPlanetName);
-        checkList(jsonString);
-        jsonString = PlayerPrefs.GetString(myPlanetName);//evtl hat checkList estwas eingefuegt, jsonString muss also neu eingelesen werden.
-
-        Debug.Log("ScoreList: in jsonString steht folgendes: " + jsonString);
-        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        //checkList(highscores);
-
-        //Sort entry by _time
-        for (int i=0; i<highscores.highscoreEntryList.Count; i++)
-        {
-            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
-            {
-                if (highscores.highscoreEntryList[j]._time < highscores.highscoreEntryList[i]._time)
-                {
-                    //swap
-                    Debug.Log("ScoreList: jetzt wird geordnet");
-
-                    HighscoreEntry tmp = highscores.highscoreEntryList[i];
-                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
-                    highscores.highscoreEntryList[j] = tmp;
-                }
-                else if (highscores.highscoreEntryList[j]._time == highscores.highscoreEntryList[i]._time && highscores.highscoreEntryList[j].name == highscores.highscoreEntryList[i].name && highscores.highscoreEntryList[j].car == highscores.highscoreEntryList[i].car)
-                {
-                    //if both are exactly the same
-                    highscores.highscoreEntryList.RemoveAt(i);
-                }
-            }
-        }
-        //test how many positions
-        Debug.Log("ScoreList: es gibt " + highscores.highscoreEntryList.Count + "einträge in der Liste von" + myPlanetName);
-
-        //delete positions over 10
-        /*
-        if (highscores.highscoreEntryList.Count > 9)//so sind nur 10 Elemente da
-        {
-            highscores.highscoreEntryList.Remove(highscores.highscoreEntryList[10]);
-            Debug.Log("ScoreList: Nurnoch 10 eintraege in Liste von" + myPlanetName);
-        }
-        */
-        while (highscores.highscoreEntryList.Count > 10)//so sind nur 10 Elemente da
-        {
-            highscores.highscoreEntryList.Remove(highscores.highscoreEntryList[10]);
-            Debug.Log("ScoreList: Nurnoch 10 eintraege in Liste von" + myPlanetName);
-        }
+        getList();
+        sortList();
 
         //actually show it
         Debug.Log("ScoreList: liste darstellen");
@@ -123,7 +69,7 @@ public class ScoreList : MonoBehaviour
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
     {
         float templateHeight = 30f;//höhe des templates, gewissermaßen zeilenhöhe
-        Transform entryTransform = Instantiate(entryTemplate, container); //instanzieren von template in den Conteibner hinein
+        Transform entryTransform = Instantiate(entryTemplate, container); //instanzieren von template in den Container hinein
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
@@ -166,21 +112,90 @@ public class ScoreList : MonoBehaviour
 
         //Load saved Highscores
         //string jsonString = PlayerPrefs.GetString("highscoreTable");
-        string jsonString = PlayerPrefs.GetString(myPlanetName);
-        checkList(jsonString);
-        jsonString = PlayerPrefs.GetString(myPlanetName);//evtl hat checkList estwas eingefuegt, jsonString muss also neu eingelesen werden.
-
-        Debug.Log("ScoreList: in jsonString steht folgendes: " + jsonString);
-        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+        getList();
 
         //Add new entry to Highscores
         highscores.highscoreEntryList.Add(highscoreEntry);
 
+        sortList();
+        resizeList();
+
         //Save updated Highscores
+        saveList();
+    }
+
+    private void getList()
+    {
+        string jsonString = PlayerPrefs.GetString(myPlanetName);
+        checkList(jsonString);//gibt es überhaupt eine Liste?
+        jsonString = PlayerPrefs.GetString(myPlanetName);//evtl hat checkList estwas eingefuegt, jsonString muss also neu eingelesen werden.
+
+        Debug.Log("ScoreList: in jsonString steht folgendes: " + jsonString);
+        highscores = JsonUtility.FromJson<Highscores>(jsonString);//definieren
+    }
+
+    private void checkList(string jsonString)//checks if there is something in the List
+    {
+        if (jsonString.Length == 0)
+        {
+            Debug.Log("ScoreList: jsonString ist NULL!");
+            SaveDefaultList();//Adds a Default List if there was no List before
+        }
+    }
+
+    private void sortList()
+    {
+        //test how many positions
+        Debug.Log("ScoreList: es gibt " + highscores.highscoreEntryList.Count + " einträge in der Liste von" + myPlanetName);
+
+        //Sort entry by _time
+        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)//von anfang zu ende
+        {
+            Debug.Log("ScoreLIst: i hat nummer: " + i);
+            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
+            {
+                Debug.Log("ScoreLIst: j hat nummer: " + j);
+                if (highscores.highscoreEntryList[j]._time < highscores.highscoreEntryList[i]._time)
+                {
+                    //swap
+                    Debug.Log("ScoreList: jetzt wird geordnet");
+
+                    HighscoreEntry tmp = highscores.highscoreEntryList[i];
+                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
+                    highscores.highscoreEntryList[j] = tmp;
+                }
+            }
+        }
+
+        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)//Beim größten anfangen, zum kleinsten gehen
+        {
+            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
+            {
+                if (highscores.highscoreEntryList[j]._time == highscores.highscoreEntryList[i]._time && highscores.highscoreEntryList[j].name == highscores.highscoreEntryList[i].name && highscores.highscoreEntryList[j].car == highscores.highscoreEntryList[i].car)
+                {
+                    //if both are exactly the same
+                    highscores.highscoreEntryList.RemoveAt(i);
+                }
+            }
+        }
+    }
+
+    private void resizeList()
+    {
+        while (highscores.highscoreEntryList.Count > 10)//so sind nur 10 Elemente da
+        {
+            highscores.highscoreEntryList.Remove(highscores.highscoreEntryList[10]);
+            Debug.Log("ScoreList: Nurnoch 10 eintraege in Liste von" + myPlanetName);
+        }
+    }
+
+    private void saveList()
+    {
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString(myPlanetName, json);
         PlayerPrefs.Save();
     }
+
 
     private class Highscores
     {
@@ -201,16 +216,14 @@ public class ScoreList : MonoBehaviour
     {
         highscoreEntryList = new List<HighscoreEntry>()
         {
-            new HighscoreEntry{ _time = 560, name = "L4ss3 d3r D0N", car = "BMW"},
-            new HighscoreEntry{ _time = 580, name = "M4rv1n K1ng", car = "BMW"},
             new HighscoreEntry{ _time = 550, name = "J4n4 (^.^)", car = "BMW"},
+            new HighscoreEntry{ _time = 560, name = "L4ss3 d3r D0N", car = "BMW"},
             new HighscoreEntry{ _time = 570, name = "[_Fab13nn3_]", car = "BMW"},
+            new HighscoreEntry{ _time = 580, name = "M4rv1n K1ng", car = "BMW"},
         };
 
         Highscores highscores = new Highscores{ highscoreEntryList = highscoreEntryList };
-        string json = JsonUtility.ToJson(highscores);//Liste als Json in PlayerPrefs speichern
-        PlayerPrefs.SetString(myPlanetName, json);
-        PlayerPrefs.Save();
+        saveList();
         Debug.Log("ScoreList: SaveDefaultList wurde mit der Liste: " + myPlanetName + " ausgeführt!");
     }
 }

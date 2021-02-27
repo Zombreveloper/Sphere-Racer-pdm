@@ -19,15 +19,15 @@ public class Speedometer : MonoBehaviour
     //public RectTransform arrow; // The arrow in the speedometer
 
     private float speed = 0.0f;
-	
-	
+
+
 	void Start()
 	{
 		playerCar = GameObject.Find("currentCar");
         playerCarRB = playerCar.GetComponent<Rigidbody>();
 	}
-	
-	
+
+
     private void Update()
     {
         // 3.6f to convert in kilometers
@@ -35,7 +35,7 @@ public class Speedometer : MonoBehaviour
         speed = playerCarRB.velocity.magnitude * 3.6f;
 
         if (speedLabel != null)
-            speedLabel.text = ((int)speed) + " Km/h";
+            speedLabel.text = ((int)speed) + " km/h";
         //if (arrow != null)
            // arrow.localEulerAngles =
                 //new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));

@@ -186,7 +186,7 @@ public class RaceManager : MonoBehaviour
             Debug.Log("You are in Lap Number " + lapCounter);
             countsLaps = false;
 
-            myLap.text = "Runde: " + lapCounter;
+            myLap.text = "Lap: " + lapCounter;
         }
 
         if (lapCounter == totalLaps+1)
