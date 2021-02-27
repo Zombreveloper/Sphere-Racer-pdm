@@ -12,8 +12,11 @@ public class PlayerScoreMenu : MonoBehaviour
     private string totalTimeFormated;
     protected string nameInput;
     public GameObject inputField;
+    public TMP_Text errorMessage;
 
     private ScoreList currentList;
+
+    private int canISubmit = 0;
 
     //public MenuMode _menuMode;
 
@@ -33,10 +36,22 @@ public class PlayerScoreMenu : MonoBehaviour
         timeText.text = totalTimeFormated;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void checkName(string name)
     {
-
+        if (name.Length == 0)//kein Name
+        {
+            errorMessage.text = "You cannot submit without entering a Name!";
+            canISubmit = 0;
+        }
+        else if (name.Length <= 9)//Name korrekt
+        {
+            canISubmit = 1;
+        }
+        else if (name.Length > 9)//Name zu lang
+        {
+            errorMessage.text = "You cannot submit a Name longer than 9 characters!";
+            canISubmit = 0;
+        }
     }
 
     public void submit()
@@ -46,16 +61,20 @@ public class PlayerScoreMenu : MonoBehaviour
         Debug.Log("Der Name lautet: " + nameInput);
 
         //wenn kein Name eingetragne, dann verhindern!
+        checkName(nameInput);
 
-        PlayerPrefs.SetString("currentName", nameInput);
+        if (canISubmit == 1)
+        {
+            PlayerPrefs.SetString("currentName", nameInput);
 
-        //mainMenu();
-        string currentPlanet = PlayerPrefs.GetString("selectedPlanet");
-        //_menuMode.fromRace(currentPlanet);
-        PlayerPrefs.SetString("fromPLanet", currentPlanet);
-        PlayerPrefs.Save();
-        //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Menu"));
-        SceneManager.LoadScene("Menu");
+            //mainMenu();
+            string currentPlanet = PlayerPrefs.GetString("selectedPlanet");
+            //_menuMode.fromRace(currentPlanet);
+            PlayerPrefs.SetString("fromPLanet", currentPlanet);
+            PlayerPrefs.Save();
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Menu"));
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void mainMenu()
