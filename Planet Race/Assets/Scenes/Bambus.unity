@@ -4705,6 +4705,7 @@ MonoBehaviour:
   myPlanet: {fileID: 0}
   _loadCar: {fileID: 0}
   checkPointMesh: {fileID: 543450653118450878}
+  checkPointRender: {fileID: 0}
   nameOfActive: 0
   totalLaps: 2
   endeText: {fileID: 1261883310}

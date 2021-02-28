@@ -17,6 +17,7 @@ public class RaceManager : MonoBehaviour
     public LoadCar _loadCar;
 
     public Transform checkPointMesh; //Mesh bzw Modell vom aktiven Checkpoint
+	public Renderer checkPointRender; //Renderer für das Checkpointmesh
     private Transform parentOfCheckPoints; //Parent von allen Checkpoints, heißt "AllCheckPoints"
     private int numberOfCheckPoints;
     private int numberOfActive; //Nummer in RaceManager
@@ -50,6 +51,7 @@ public class RaceManager : MonoBehaviour
     {
         startRace();
         triggerStatus = false;
+		
 
         playerCar = GameObject.Find("currentCar");
         playerCarRB = playerCar.GetComponent<Rigidbody>();
@@ -85,16 +87,17 @@ public class RaceManager : MonoBehaviour
 //methoden
     void setupCheckPoints()
     {
+		checkPointRender = checkPointMesh.GetComponent<Renderer>(); //den Renderer vom Mesh ranschaffen und verfügbar machen
         parentOfCheckPoints = GameObject.Find("AllCheckPoints").transform;
         numberOfCheckPoints = parentOfCheckPoints.childCount;
         numberOfActive = 0; //startwert, collider der Ziellinie
         numberOfResetPos = 0;
+		checkPointRender.enabled = false;
     }
 
     void startRace()
     {
         positionMesh(numberOfActive);
-
         //setzt Auto an StartOrt
         /*playerCar.position = startPoint.position;
         playerCar.rotation = startPoint.rotation;*/
@@ -117,17 +120,20 @@ public class RaceManager : MonoBehaviour
             if (nameOfActive == numberOfActive)
             {
                 updateLaps();
+				
                 if (numberOfActive == numberOfCheckPoints-1)
                 {
                     numberOfResetPos = numberOfActive;
                     numberOfActive = 0;
                     positionMesh(numberOfActive);
+					checkPointRender.enabled = false;
                 }
                 else
                 {
                     numberOfResetPos = numberOfActive;
                     numberOfActive++;
                     positionMesh(numberOfActive);
+					checkPointRender.enabled = true;
                 }
             }
         }
