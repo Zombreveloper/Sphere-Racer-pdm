@@ -2,12 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     //private GameObject planet;
     //public PlanetSelection PlanetSelection;
     public int currentPlanet;
+
+    public Dropdown resolutionDropdown;
+
+    Resolution[] resolutions;
+
+    void Start()
+    {
+        resolutions = Screen.resolutions;
+
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (PlayerPrefs.HasKey("myResolution"))
+            {
+                int resolutionIndex = PlayerPrefs.GetInt("myResolution");
+                SetResolution(currentResolutionIndex);
+                currentResolutionIndex = resolutionIndex;
+            }
+            else if (resolutions[i].width == Screen.currentResolution.width &&
+            resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
+    public void SetResolution (int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+        PlayerPrefs.SetInt("myResolution", resolutionIndex);
+        PlayerPrefs.Save();
+    }
 
     public void updateCurrentPlanet(int planet)
     {
@@ -65,5 +111,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("Bambus");
         PlayerPrefs.DeleteKey("Mond");
         PlayerPrefs.DeleteKey("Mars");
+    }
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 }
