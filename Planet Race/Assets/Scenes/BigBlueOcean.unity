@@ -1566,7 +1566,7 @@ RectTransform:
   - {fileID: 1232129976}
   - {fileID: 1362739312}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12550,7 +12550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1223185080
 Transform:
   m_ObjectHideFlags: 0
@@ -14064,7 +14064,7 @@ RectTransform:
   m_Children:
   - {fileID: 275843846}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -20325,6 +20325,7 @@ MonoBehaviour:
   myPlanet: {fileID: 0}
   _loadCar: {fileID: 0}
   checkPointMesh: {fileID: 2586308163062678944}
+  checkPointRender: {fileID: 0}
   nameOfActive: 0
   totalLaps: 2
   endeText: {fileID: 1232129975}
@@ -20341,7 +20342,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1791589980
 MonoBehaviour:
@@ -21542,7 +21543,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1942130311
 MonoBehaviour:
@@ -23458,7 +23459,7 @@ RectTransform:
   - {fileID: 1238383450}
   - {fileID: 1968407312}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23707,7 +23708,7 @@ Transform:
   - {fileID: 822648169}
   - {fileID: 728805039}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &248492959353576159
 GameObject:
