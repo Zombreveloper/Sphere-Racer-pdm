@@ -4029,7 +4029,6 @@ GameObject:
   m_Component:
   - component: {fileID: 647634960}
   - component: {fileID: 647634962}
-  - component: {fileID: 647634961}
   m_Layer: 0
   m_Name: SFX-Slider
   m_TagString: Untagged
@@ -4059,20 +4058,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 41}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &647634961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647634959}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6bd74cec8b0644d9428a88c56b02a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 7479c10be7d19824e86aeaf1e3659922, type: 2}
-  slider: {fileID: 647634962}
 --- !u!114 &647634962
 MonoBehaviour:
   m_ObjectHideFlags: 0
