@@ -57,6 +57,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{3e0d9448-5f68-4d7d-8d4c-a1b0c1526e1f}</destination>
 			<destination>{e15df421-61ee-428c-9774-31e368aa0c06}</destination>
 			<destination>{c302d126-0e84-44b3-8c47-f1df581a4adf}</destination>
+			<destination>{8a7d81d1-1817-4893-aec6-315262e9e254}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{5b2b0b25-08f0-49ac-8999-41d1c557eae9}</destination>
@@ -128,10 +129,15 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 	<object class="GroupTrack" id="{c302d126-0e84-44b3-8c47-f1df581a4adf}">
 		<relationship name="modules">
 			<destination>{693ad605-93e3-4eb9-9466-5b7ca44697a9}</destination>
-			<destination>{fdf20e28-74b8-436f-8dea-a45ec02846c5}</destination>
+			<destination>{5a3d5abd-957f-46cb-880a-7ee12306a30d}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{bd55b81d-9b8b-4d7c-b749-bd92aa9c0d3d}</destination>
+		</relationship>
+	</object>
+	<object class="GroupTrack" id="{8a7d81d1-1817-4893-aec6-315262e9e254}">
+		<relationship name="mixerGroup">
+			<destination>{79410f84-7944-4b95-b4ee-de94c1162c41}</destination>
 		</relationship>
 	</object>
 	<object class="Timeline" id="{5b2b0b25-08f0-49ac-8999-41d1c557eae9}">
@@ -150,7 +156,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{86d0a0af-b567-4cf7-8176-82812b6546c5}</destination>
 			<destination>{df5f5cd1-47af-4bbd-a170-9488593f09ac}</destination>
 			<destination>{693ad605-93e3-4eb9-9466-5b7ca44697a9}</destination>
-			<destination>{fdf20e28-74b8-436f-8dea-a45ec02846c5}</destination>
+			<destination>{5a3d5abd-957f-46cb-880a-7ee12306a30d}</destination>
 		</relationship>
 		<relationship name="preset">
 			<destination>{e25821f0-cab8-48f7-94c9-fef8b0f68286}</destination>
@@ -163,7 +169,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 	</object>
 	<object class="EventMixerMaster" id="{aa70da64-dfe8-4f4c-adca-2e9bb6c60913}">
 		<property name="volume">
-			<value>9.5</value>
+			<value>-1.29999995</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{a42c46ab-3fae-4688-b813-160c10a563c6}</destination>
@@ -375,7 +381,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{3a674455-9ebb-4af0-ba36-cdaa0a5a3b89}</destination>
 		</relationship>
 		<relationship name="fadeInCurve">
-			<destination>{2c2a3643-7721-4510-b207-056fa58f0bb0}</destination>
+			<destination>{7ca066e7-62db-453b-8e78-3b2c52a6ecfd}</destination>
 		</relationship>
 		<relationship name="fadeOutCurve">
 			<destination>{94accbfd-7ea4-4abd-aaec-3526401b7f7a}</destination>
@@ -402,11 +408,17 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{693ad605-93e3-4eb9-9466-5b7ca44697a9}">
+		<property name="start">
+			<value>2500</value>
+		</property>
 		<property name="length">
-			<value>5000.00048828125</value>
+			<value>7500</value>
 		</property>
 		<property name="volume">
 			<value>2.5</value>
+		</property>
+		<property name="pitch">
+			<value>16</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
@@ -414,31 +426,31 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		<relationship name="modulators">
 			<destination>{2a146910-7b42-45d9-97a8-e724d2ef61ce}</destination>
 		</relationship>
-		<relationship name="fadeOutCurve">
-			<destination>{bbed466c-6ce3-460d-bcb5-13aac31dca4f}</destination>
+		<relationship name="fadeInCurve">
+			<destination>{68e8fdc9-1e98-47d0-aec7-cd9638bcd5ef}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{54d34574-cbb6-4f1d-9c49-6d63f059fc65}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{fdf20e28-74b8-436f-8dea-a45ec02846c5}">
-		<property name="start">
-			<value>2800</value>
-		</property>
+	<object class="SingleSound" id="{5a3d5abd-957f-46cb-880a-7ee12306a30d}">
 		<property name="length">
-			<value>7200</value>
+			<value>5600</value>
 		</property>
 		<property name="volume">
-			<value>-5.5</value>
+			<value>-1.5</value>
+		</property>
+		<property name="pitch">
+			<value>16</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{886c16be-6249-4923-8557-1233b1002881}</destination>
+			<destination>{c9168151-e4ef-4047-abde-be653f1180f6}</destination>
 		</relationship>
-		<relationship name="fadeInCurve">
-			<destination>{6a178e6e-dd95-4ce4-8ad1-038f5dfebcd7}</destination>
+		<relationship name="fadeOutCurve">
+			<destination>{6893ec5d-544e-421b-ab0c-b20e3d365235}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{54d34574-cbb6-4f1d-9c49-6d63f059fc65}</destination>
@@ -446,7 +458,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 	</object>
 	<object class="EventMixerGroup" id="{bd55b81d-9b8b-4d7c-b749-bd92aa9c0d3d}">
 		<property name="volume">
-			<value>5.5</value>
+			<value>-3.5</value>
 		</property>
 		<property name="name">
 			<value>Low Hum</value>
@@ -456,6 +468,20 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 		<relationship name="panner">
 			<destination>{1071fd80-19e0-4a60-8388-f11d8875f70c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{aa70da64-dfe8-4f4c-adca-2e9bb6c60913}</destination>
+		</relationship>
+	</object>
+	<object class="EventMixerGroup" id="{79410f84-7944-4b95-b4ee-de94c1162c41}">
+		<property name="name">
+			<value>Audio 1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{4e715530-ae91-4b93-8b4f-14f987c08242}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b7faf884-7127-4bbd-b2e3-da779d43026b}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{aa70da64-dfe8-4f4c-adca-2e9bb6c60913}</destination>
@@ -668,12 +694,12 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>0.214999989</value>
 		</property>
 	</object>
-	<object class="FadeCurve" id="{2c2a3643-7721-4510-b207-056fa58f0bb0}">
+	<object class="FadeCurve" id="{7ca066e7-62db-453b-8e78-3b2c52a6ecfd}">
 		<relationship name="startPoint">
-			<destination>{ba4a41c4-340e-4420-a45f-9da453339d88}</destination>
+			<destination>{3d5b6ad0-010b-4711-8931-f372e4c2bbf7}</destination>
 		</relationship>
 		<relationship name="endPoint">
-			<destination>{1f583b68-fbb8-493a-9e2d-21d67531e1ca}</destination>
+			<destination>{d047bbf7-12b2-4870-b257-0fc6c9b055b9}</destination>
 		</relationship>
 	</object>
 	<object class="FadeCurve" id="{94accbfd-7ea4-4abd-aaec-3526401b7f7a}">
@@ -695,37 +721,43 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>pitch</value>
 		</property>
 		<property name="root">
-			<value>2300</value>
+			<value>3500</value>
 		</property>
 		<property name="pitchAtMinimum">
-			<value>0.50999999</value>
+			<value>0.299999982</value>
 		</property>
 	</object>
-	<object class="FadeCurve" id="{bbed466c-6ce3-460d-bcb5-13aac31dca4f}">
+	<object class="FadeCurve" id="{68e8fdc9-1e98-47d0-aec7-cd9638bcd5ef}">
 		<relationship name="startPoint">
-			<destination>{dda275fc-7b00-4d71-8093-2a6e0334fe19}</destination>
+			<destination>{05f3448f-c3e0-4bf6-b527-3ab8d9125e4e}</destination>
 		</relationship>
 		<relationship name="endPoint">
-			<destination>{82e30b4d-87ef-4b9f-a72c-9cc1560c2832}</destination>
+			<destination>{cc832532-236f-4add-9e3c-e802a090b30d}</destination>
+		</relationship>
+		<relationship name="relatedModule">
+			<destination>{5a3d5abd-957f-46cb-880a-7ee12306a30d}</destination>
 		</relationship>
 	</object>
-	<object class="AutopitchModulator" id="{886c16be-6249-4923-8557-1233b1002881}">
+	<object class="AutopitchModulator" id="{c9168151-e4ef-4047-abde-be653f1180f6}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
 		</property>
 		<property name="root">
-			<value>2300</value>
+			<value>3500</value>
 		</property>
 		<property name="pitchAtMinimum">
-			<value>0.50999999</value>
+			<value>0.299999982</value>
 		</property>
 	</object>
-	<object class="FadeCurve" id="{6a178e6e-dd95-4ce4-8ad1-038f5dfebcd7}">
+	<object class="FadeCurve" id="{6893ec5d-544e-421b-ab0c-b20e3d365235}">
 		<relationship name="startPoint">
-			<destination>{a7d691b9-c9e3-4823-a412-d21597fcac60}</destination>
+			<destination>{4092d32d-df2b-4bd7-a57e-a2661ca3ce39}</destination>
 		</relationship>
 		<relationship name="endPoint">
-			<destination>{3dd46218-c7e1-4eb1-9197-0a5237b49cff}</destination>
+			<destination>{934e18a8-2eb8-4881-8064-ede860589feb}</destination>
+		</relationship>
+		<relationship name="relatedModule">
+			<destination>{693ad605-93e3-4eb9-9466-5b7ca44697a9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{f11ce12e-2371-4afa-ad9c-78d5c769f1cd}">
@@ -734,6 +766,12 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1071fd80-19e0-4a60-8388-f11d8875f70c}" />
+	<object class="MixerBusEffectChain" id="{4e715530-ae91-4b93-8b4f-14f987c08242}">
+		<relationship name="effects">
+			<destination>{22c4e7c0-55b0-432d-bbe7-444002f5a23b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b7faf884-7127-4bbd-b2e3-da779d43026b}" />
 	<object class="MixerBusFader" id="{e471c71a-1960-472f-be03-b9822f18f9f8}" />
 	<object class="ProxyEffect" id="{ae53c275-38a7-4f74-9676-406ec45e87ec}">
 		<property name="inputFormat">
@@ -943,7 +981,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>1</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{ba4a41c4-340e-4420-a45f-9da453339d88}">
+	<object class="AutomationPoint" id="{3d5b6ad0-010b-4711-8931-f372e4c2bbf7}">
 		<property name="position">
 			<value>0</value>
 		</property>
@@ -954,9 +992,9 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>-0.2547189</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{1f583b68-fbb8-493a-9e2d-21d67531e1ca}">
+	<object class="AutomationPoint" id="{d047bbf7-12b2-4870-b257-0fc6c9b055b9}">
 		<property name="position">
-			<value>2200</value>
+			<value>1700</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -982,28 +1020,9 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{870ceab3-c1c9-486c-8620-caef608dd92a}" />
-	<object class="AutomationPoint" id="{dda275fc-7b00-4d71-8093-2a6e0334fe19}">
+	<object class="AutomationPoint" id="{05f3448f-c3e0-4bf6-b527-3ab8d9125e4e}">
 		<property name="position">
-			<value>2800</value>
-		</property>
-		<property name="value">
-			<value>1</value>
-		</property>
-		<property name="curveShape">
-			<value>0.25471893</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{82e30b4d-87ef-4b9f-a72c-9cc1560c2832}">
-		<property name="position">
-			<value>5000.00048828125</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{a7d691b9-c9e3-4823-a412-d21597fcac60}">
-		<property name="position">
-			<value>2800</value>
+			<value>2500</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -1012,13 +1031,33 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>-0.2547189</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{3dd46218-c7e1-4eb1-9197-0a5237b49cff}">
+	<object class="AutomationPoint" id="{cc832532-236f-4add-9e3c-e802a090b30d}">
 		<property name="position">
-			<value>4300.00048828125</value>
+			<value>5600</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 	</object>
+	<object class="AutomationPoint" id="{4092d32d-df2b-4bd7-a57e-a2661ca3ce39}">
+		<property name="position">
+			<value>2500</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{934e18a8-2eb8-4881-8064-ede860589feb}">
+		<property name="position">
+			<value>5600</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{a1016d62-97e5-4f51-b882-cd9907c09308}" />
+	<object class="MixerBusFader" id="{22c4e7c0-55b0-432d-bbe7-444002f5a23b}" />
 </objects>
