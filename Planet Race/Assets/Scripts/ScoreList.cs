@@ -23,8 +23,23 @@ public class ScoreList : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);//muster-Zeile unsichtbar machen
 
-        //show the List (put things in order)
-        showList();
+        int addHigh = PlayerPrefs.GetInt("AddHigh");
+        if (addHigh == 0)
+        {
+            //show the List (put things in order)
+            showList();
+        }
+        else if (addHigh == 1)
+        {
+            makeEntry();
+            PlayerPrefs.SetInt("AddHigh", 0);
+            PlayerPrefs.Save();
+            showList();
+        }
+        else
+        {
+            Debug.Log("ScoreList: ERROR: addHigh has wrong number!");
+        }
     }
 
 
@@ -194,6 +209,7 @@ public class ScoreList : MonoBehaviour
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString(myPlanetName, json);
         PlayerPrefs.Save();
+        Debug.Log("ScoreList: SaveList wurde ausgeführt");
     }
 
 
@@ -222,7 +238,8 @@ public class ScoreList : MonoBehaviour
             new HighscoreEntry{ _time = 580, name = "M4rv1n K1ng", car = "BMW"},
         };
 
-        Highscores highscores = new Highscores{ highscoreEntryList = highscoreEntryList };
+//hier war mal n fehler, zeile 149 grueßt
+        highscores = new Highscores{ highscoreEntryList = highscoreEntryList };
         saveList();
         Debug.Log("ScoreList: SaveDefaultList wurde mit der Liste: " + myPlanetName + " ausgeführt!");
     }

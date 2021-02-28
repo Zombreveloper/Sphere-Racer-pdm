@@ -70,6 +70,7 @@ public class PlayerScoreMenu : MonoBehaviour
             //mainMenu();
             string currentPlanet = PlayerPrefs.GetString("selectedPlanet");
             //_menuMode.fromRace(currentPlanet);
+            PlayerPrefs.SetInt("AddHigh", 1);
             PlayerPrefs.SetString("fromPLanet", currentPlanet);
             PlayerPrefs.Save();
             //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Menu"));

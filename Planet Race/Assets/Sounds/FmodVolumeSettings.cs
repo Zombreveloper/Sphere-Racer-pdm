@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class FmodVolumeSettings : MonoBehaviour {
 
      FMOD.Studio.EventInstance SFXVolumeTestEvent;
-     FMOD.Studio.Bus SFX;
+     FMOD.Studio.Bus SFX, MenuSounds;
 	 
 	 public Slider slider;
 
      float SFXVolume;
+	 float MenuSoundsVolume;
 	 int firstChanged = 0; //Flag, der aussagt, ob die Lautstärke schon mal geändert wurde
 
      void Start ()
@@ -23,7 +24,7 @@ public class FmodVolumeSettings : MonoBehaviour {
      {
 
           SFX = FMODUnity.RuntimeManager.GetBus ("bus:/SFX/Vehicles");
-		  //SFXInstance = FMODUnity.RuntimeManager.CreateInstance ("bus:/SFX/Vehicles");
+		  MenuSounds = FMODUnity.RuntimeManager.GetBus ("bus:/MenuSounds");
           SFXVolumeTestEvent = FMODUnity.RuntimeManager.CreateInstance ("event:/Vehicles/OptionsReferenceSound");
 		  SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
 	 }	  
@@ -31,6 +32,7 @@ public class FmodVolumeSettings : MonoBehaviour {
      void Update () 
      {
          SFX.setVolume (SFXVolume);
+		 MenuSounds.setVolume (SFXVolume);
      }
 	 
 	 public void PauseSFX()
@@ -51,12 +53,14 @@ public class FmodVolumeSettings : MonoBehaviour {
 		 {
 		 
           SFXVolume = newSFXVolume;
+		  MenuSoundsVolume = newSFXVolume;
 		  PlayerPrefs.SetFloat("SFXVolume", newSFXVolume);
 		  firstChanged ++;
 		 }
 		else 
 		{
 		  SFXVolume = newSFXVolume;
+		  MenuSoundsVolume = newSFXVolume;
 		  PlayerPrefs.SetFloat("SFXVolume", newSFXVolume);
 		  
           //Spielt Testsound ab, wenn die Lautstärke geändert wird

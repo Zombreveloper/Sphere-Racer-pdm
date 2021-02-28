@@ -12,6 +12,7 @@ public class pauseMenu : MonoBehaviour
 	
 
     public GameObject pauseMenuUI;
+	public GameObject OptionsMenuUI;
 	
 
 	
@@ -23,12 +24,10 @@ public class pauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
-				mySoundmanager.UnpauseSFX();
             }
             else
             {
                 Pause();
-				mySoundmanager.PauseSFX();
             }
         }
     }
@@ -36,6 +35,8 @@ public class pauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+		OptionsMenuUI.SetActive(false);
+		mySoundmanager.UnpauseSFX();
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -43,6 +44,7 @@ public class pauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+		mySoundmanager.PauseSFX();
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -50,11 +52,24 @@ public class pauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Resume();
-		mySoundmanager.UnpauseSFX();
         PlayerPrefs.SetString("fromPLanet", "Splash");
         PlayerPrefs.Save();
+		mySoundmanager.UnpauseSFX();
         SceneManager.LoadScene("Menu");
     }
+	
+	public void goToOptions()
+	{
+		pauseMenuUI.SetActive(false);
+		OptionsMenuUI.SetActive(true);
+		
+	}
+	
+	public void goToPauseMenu()
+	{
+		OptionsMenuUI.SetActive(false);
+		pauseMenuUI.SetActive(true);
+	}
 
     public void QuitGame()
     {
