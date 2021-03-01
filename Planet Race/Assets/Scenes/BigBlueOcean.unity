@@ -12884,7 +12884,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RENNEN BEENDET!
+  m_text: 'YOU
+
+    FINISHED!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17003,7 +17005,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 362a74f011426f041a9e999aaa3e9952, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24569,13 +24571,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3935917386712655660}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.23, y: 313.37, z: -37.42}
+  m_LocalRotation: {x: 0.00009214867, y: 0.00035530364, z: 0.0026021502, w: 0.99999654}
+  m_LocalPosition: {x: -27.2, y: 315.64, z: -37.42}
   m_LocalScale: {x: 1.2664, y: 0.83139753, z: 1.2664}
   m_Children: []
   m_Father: {fileID: 8227280132945504290}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.010000001, y: 0.041, z: 0.298}
 --- !u!4 &4992012681639123851
 Transform:
   m_ObjectHideFlags: 0

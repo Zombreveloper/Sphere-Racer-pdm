@@ -2910,7 +2910,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3e8fb1d32dcc9234e926f62c472ba601, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3450,7 +3450,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RENNEN BEENDET!
+  m_text: 'YOU
+
+    FINISHED!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
