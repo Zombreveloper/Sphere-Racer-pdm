@@ -1235,7 +1235,7 @@ MonoBehaviour:
   maxSteer: 20
   accelerationOn: 30
   brakePower: 1000
-  accelerationMult: 3
+  accelerationMult: 2.5
 --- !u!114 &2991572411371449765
 MonoBehaviour:
   m_ObjectHideFlags: 0

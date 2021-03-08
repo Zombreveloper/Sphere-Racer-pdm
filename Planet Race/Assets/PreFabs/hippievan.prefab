@@ -252,7 +252,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 8805307502864962773}
   motorTorque: 300
   maxSteer: 20
-  accelerationOn: 10
+  accelerationOn: 20
   brakePower: 1000
   accelerationMult: 3
 --- !u!114 &-6865718328780786369

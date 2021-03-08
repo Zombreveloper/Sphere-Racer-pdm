@@ -1316,7 +1316,7 @@ MonoBehaviour:
   motorTorque: 600
   maxSteer: 8
   accelerationOn: 30
-  brakePower: 1000
+  brakePower: 1600
   accelerationMult: 3
 --- !u!114 &4260200416249720959
 MonoBehaviour:

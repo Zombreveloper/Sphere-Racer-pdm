@@ -521,9 +521,9 @@ MonoBehaviour:
   centerOfMass: {fileID: 8889245315528122925}
   motorTorque: 500
   maxSteer: 20
-  accelerationOn: 10
+  accelerationOn: 25
   brakePower: 1000
-  accelerationMult: 3
+  accelerationMult: 2
 --- !u!114 &9092887142461809152
 MonoBehaviour:
   m_ObjectHideFlags: 0
