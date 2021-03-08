@@ -18,7 +18,7 @@ public class FlameAnimation : MonoBehaviour
     void Update()
     {
 		XRandom = Random.Range(0.1416146f, 0.2f);
-		YRandom = Random.Range(0.7f, 0.8f);
+		YRandom = Random.Range(0.6f, 0.8f);
 		ZRandom = Random.Range(0.1f, 0.2f);
 		
        transform.localScale = new Vector3 (XRandom, YRandom, ZRandom); 
