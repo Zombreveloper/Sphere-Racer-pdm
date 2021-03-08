@@ -51,7 +51,25 @@ public class ScoreList : MonoBehaviour
         string currentPlanet = PlayerPrefs.GetString("selectedPlanet");
         float totalTime = PlayerPrefs.GetFloat("totalTime");
         string nameInput = PlayerPrefs.GetString("currentName");
+
         string playerCar = PlayerPrefs.GetString("selectedCar");
+        //Namen anpassen, weil wir doof sind :´)
+        if (playerCar == "Toyota GT 86")
+        {
+            playerCar = "Yotota TG 68";
+        }
+        else if (playerCar == "Raumschiff")
+        {
+            playerCar = "Space Ship";
+        }
+        else if (playerCar == "PandaCar")
+        {
+            playerCar = "Panda Car";
+        }
+        else if (playerCar == "HippieVan")
+        {
+            playerCar = "Hippie Van";
+        }
 
         Debug.Log("ScoreList: currentPlanet: " + currentPlanet);
         Debug.Log("ScoreList: myPlanetName: " + myPlanetName);
@@ -232,10 +250,10 @@ public class ScoreList : MonoBehaviour
     {
         highscoreEntryList = new List<HighscoreEntry>()
         {
-            new HighscoreEntry{ _time = 550, name = "J4n4 (^.^)", car = "BMW"},
-            new HighscoreEntry{ _time = 560, name = "L4ss3 d3r D0N", car = "BMW"},
-            new HighscoreEntry{ _time = 570, name = "[_Fab13nn3_]", car = "BMW"},
-            new HighscoreEntry{ _time = 580, name = "M4rv1n K1ng", car = "BMW"},
+            new HighscoreEntry{ _time = 550, name = "J4n4 (^.^)", car = "Volksauto"},
+            new HighscoreEntry{ _time = 560, name = "L4ss3 d3r D0N", car = "Volksauto"},
+            new HighscoreEntry{ _time = 570, name = "[_Fab13nn3_]", car = "Volksauto"},
+            new HighscoreEntry{ _time = 580, name = "M4rv1n K1ng", car = "Volksauto"},
         };
 
 //hier war mal n fehler, zeile 149 grueßt
