@@ -38,6 +38,8 @@ public class RaceManager : MonoBehaviour
 
     public TMP_Text myLap;
 
+    public GameObject goTextField;
+
 //hauptprogramm
     void Awake()
     {
@@ -51,7 +53,7 @@ public class RaceManager : MonoBehaviour
     {
         startRace();
         triggerStatus = false;
-		
+
 
         playerCar = GameObject.Find("currentCar");
         playerCarRB = playerCar.GetComponent<Rigidbody>();
@@ -103,12 +105,24 @@ public class RaceManager : MonoBehaviour
         playerCar.rotation = startPoint.rotation;*/
 
         //Startet counter (3, 2, 1, GO!)
+        sayGo();
 
         //Nach GO! startzeit nehmen
         startingTime = Time.time;
         endeText.SetActive(false);
 
         //Startet anschliessend Musik
+    }
+
+    void sayGo()
+    {
+        goTextField.SetActive(true);
+        Invoke("dontSayGo", 1.5f );
+    }
+
+    void dontSayGo()
+    {
+        goTextField.SetActive(false);
     }
 
     void updateCheckPoints()
@@ -120,7 +134,7 @@ public class RaceManager : MonoBehaviour
             if (nameOfActive == numberOfActive)
             {
                 updateLaps();
-				
+
                 if (numberOfActive == numberOfCheckPoints-1)
                 {
                     numberOfResetPos = numberOfActive;
